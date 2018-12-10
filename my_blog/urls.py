@@ -20,6 +20,9 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    # 配置‘article’的url
-    path('article/', include('article.urls', namespace='article'))
+    # 配置文章app的url
+    path('article/', include('article.urls', namespace='article')),
+    # 配置用户的url
+    path('userprofile/', include('userprofile.urls', namespace='userprofile')),
+
 ]

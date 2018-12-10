@@ -8,7 +8,15 @@ app_name = 'article'
 
 # 存放映射关系的列表
 urlpatterns = [
-    # 将url映射到试图
+    # 文章主页
     path('article-list/', views.article_list, name='article_list'),
-    path('article-detail/<int:id>', views.article_detail, name='article_detail'),
+    # 文章详情页
+    path('article-detail/<int:article_id>/', views.article_detail, name='article_detail'),
+    # 写文章
+    path('article-create/', views.article_create, name='article_create'),
+    # 删除文章
+    path('article-delete/<int:article_id>/', views.article_delete, name='article_delete'),
+    # 编辑文章
+    path('article-update/<int:article_id>/', views.article_update, name='article_update'),
+
 ]
