@@ -1,7 +1,9 @@
+from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import UserLoginForm, UserRegisterForm
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 
 # 登录页
@@ -65,3 +67,18 @@ def user_register(request):
         return render(request, 'userprofile/register.html', context)
     else:
         return HttpResponse("请使用post或get请求数据")
+
+
+# 用户删除
+@login_required(login_url='/userprofile/login')
+def user_delete(request, user_id):
+    user = User.objects.get(id=user_id)
+    # 验证待删除用户和登录用户是否相同
+    print(request.user, user)
+    if request.user == user:
+        # 退出登录，删除数据，并返回博客列表
+        logout(request)
+        user.delete()
+        return redirect("article:article_list")
+    else:
+        return HttpResponse("你没有权限删除该用户")
