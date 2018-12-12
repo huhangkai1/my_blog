@@ -6,14 +6,20 @@
 {% block content %}
 <!-- 写文章表单 -->
 <div class="container">
-    <div class="row col-12">
+    <div class="col-12">
         <br>
+        <h5>还没有账号？</h5>
+        <h5>点击<a href="{% url 'userprofile:register' %}" >注册账号</a>加入我们吧！</h5>
+        <br>
+    </div>
+    <div class="row col-12">
         <!-- 表单 -->
         <form method="post" action=".">
             <!-- Django中需要POST数据的地方都必须有csrf_token -->
             {% csrf_token %}
             <!-- 账号 -->
-            <div class="form-group">
+
+            <div class="form-group col-md-15">
                 <!-- 标签 -->
                 <label for="username">账号</label>
                 <!-- 文本框 -->
