@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'article',
     # 用户
     'userprofile',
+    # 重置密码
+    'password_reset',
 ]
 
 MIDDLEWARE = [
@@ -108,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
 # LANGUAGE_CODE = 'en-us'
-LANGUAGE_CODE = 'zh_Hans'
+LANGUAGE_CODE = 'zh-Hans'
 
 TIME_ZONE = 'UTC'
 
@@ -126,3 +128,16 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+
+# SMTP服务器，改为你的邮箱的smtp
+EMAIL_HOST = 'smtp.qq.com'
+# 邮箱名
+EMAIL_HOST_USER = '3173825608@qq.com'
+# 邮箱密码
+EMAIL_HOST_PASSWORD = 'esvyvmgglbjmdegb'
+# 发送邮件的端口
+EMAIL_PORT = 25
+# 是否使用 TLS
+EMAIL_USE_TLS = True
+# 默认的发件人
+DEFAULT_FROM_EMAIL = '胡杭凯的个人网站 <3173825608@qq.com>'

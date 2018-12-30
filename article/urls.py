@@ -19,4 +19,6 @@ urlpatterns = [
     # 编辑文章
     path('article-update/<int:article_id>/', views.article_update, name='article_update'),
 
+    path('', views.article_list, name='article_detail'),
+
 ]

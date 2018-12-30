@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 
 
+
+
 # 博客的文章数据模型
 class ArticlePost(models.Model):
 
@@ -16,6 +18,11 @@ class ArticlePost(models.Model):
 
     # 文章正文。保存大量文本用 models.TextField。
     body = models.TextField()
+
+    # 分类
+
+
+    # 浏览量
 
     # 文章创建时间。参数default=timezone.now 指定创建参数时默认写入当前时间。
     created = models.DateTimeField(default=timezone.now)

@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-# 存放映射关系的列表
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 
@@ -24,5 +24,8 @@ urlpatterns = [
     path('article/', include('article.urls', namespace='article')),
     # 配置用户的url
     path('userprofile/', include('userprofile.urls', namespace='userprofile')),
+    # 重置密码
+    path('password-reset/', include('password_reset.urls')),
 
+    path('', include('article.urls', namespace='article')),
 ]
